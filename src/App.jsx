@@ -25,10 +25,11 @@ function App() {
           label="from"
           amount={amount}
           currentOption={options}
-          onCurrencyChange={(currency) => setAmount(amount)}
+          onCurrencyChange={(currency) => setFrom(currency)}
           selectCurrency={from}
-          onAmountChange={(amount)=>{
-            setAmount(amount)
+          onAmountChange={(amount) => {
+            amount >= 0 ? setAmount(amount) : setAmount(0);
+            console.log(amount)
           }}
         />
         <Input
@@ -40,9 +41,7 @@ function App() {
           amountDisable
         />
         <div className="d-grid">
-          <button className="btn btn-primary">
-            convert
-          </button>
+          <button className="btn btn-primary">convert</button>
         </div>
       </div>
     </form>
